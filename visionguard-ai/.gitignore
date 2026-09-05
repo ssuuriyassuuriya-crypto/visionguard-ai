@@ -1,0 +1,27 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.venv/
+venv/
+.env
+
+# FastAPI / app
+backend/data/uploads/*
+backend/data/outputs/*
+backend/database/*.db
+!backend/data/uploads/.gitkeep
+!backend/data/outputs/.gitkeep
+!backend/database/.gitkeep
+
+# Node
+frontend/node_modules/
+frontend/dist/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Model files are intentionally ignored unless downloaded locally
+backend/models/*.pt
