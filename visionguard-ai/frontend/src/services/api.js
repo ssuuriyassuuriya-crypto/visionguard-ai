@@ -1,4 +1,4 @@
- import axios from 'axios';
+import axios from 'axios';
 
 // Development keeps the standalone Vite workflow; deployed builds use same-origin FastAPI routes.
 const apiBaseUrl = 'https://visionguard-ai-1.onrender.com';
@@ -29,12 +29,5 @@ export const analyzeVideo = async (file) => {
 };
 
 export const fetchHistory = () => api.get('/api/history');
-export const fetchHistoryItem = (id) => api.get(`/api/history/${id}`);
-export const deleteHistoryItem = (id) => api.delete(`/api/history/${id}`);
 
-export const getApiUrl = (path) => {
-  if (!path || path.startsWith('http')) return path;
-  return `${apiBaseUrl}${path.startsWith('/') ? path : `/${path}`}`;
-};
-
-export default api;
+export const getApiUrl = (path = '') => `${apiBaseUrl}${path}`;
