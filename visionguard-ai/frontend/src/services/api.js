@@ -1,7 +1,7 @@
-import axios from 'axios';
+ import axios from 'axios';
 
 // Development keeps the standalone Vite workflow; deployed builds use same-origin FastAPI routes.
-const apiBaseUrl = import.meta.env.DEV ? 'http://localhost:8000' : '';
+const apiBaseUrl = 'https://visionguard-ai-1.onrender.com';
 
 const api = axios.create({
   baseURL: apiBaseUrl,
