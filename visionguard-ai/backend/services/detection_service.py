@@ -14,6 +14,7 @@ class DetectionService:
     def __init__(self):
         if MODEL_PATH.exists():
             self.model = YOLO(str(MODEL_PATH))
+            self.model.to('cpu')
             return
 
         # Kept as a fallback for local development. Production should include yolov8n.pt
@@ -31,7 +32,7 @@ class DetectionService:
         if image is None:
             raise ValueError("Unable to read uploaded image file.")
 
-        results = self.model(image, verbose=False)[0]
+        results = self.model(image, imgsz=640, verbose=False)[0]
         annotated = results.plot()
         detections = self._extract_detections(results)
         stats = self._summarize_detections(detections)
