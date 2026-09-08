@@ -5,6 +5,7 @@ const apiBaseUrl = 'https://visionguard-ai-1.onrender.com';
 
 const api = axios.create({
   baseURL: apiBaseUrl,
+  timeout: 90000, // 90 seconds timeout for Render cold boots & AI inference
   headers: {
     'Content-Type': 'application/json',
   },
